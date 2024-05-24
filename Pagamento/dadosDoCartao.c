@@ -9,6 +9,8 @@ void cardData(){
 		printf("Data de validade(MM/AA):\n");
 		scanf(" %d / %d", &crdMM, &crdYY);
 		fflush(stdin);
-		printf("Código de Verificação do Cartão:\n");
-		scanf(" %d", cvc);
+		printf("Código de Verificacao do Cartão:\n");
+		scanf(" %d", &cvc);
+		system("pause");
+		system("cls");
 }

@@ -8,6 +8,7 @@
 #include"parcelas.c"
 #include"resumo.c"
 #include"qrCode.c"
+#include"endereço.c"
 
 int main(){
 	setlocale(LC_ALL, "");
@@ -21,17 +22,20 @@ int main(){
 		
 		switch(op){
 			case 1:
-				//cardData();
-				summary(price, 1, name);
+				cardData();
+				adress();
+				summary(price, 9, name);
 				break;
 			case 2:
-				//cardData();
+				cardData();
+				adress();
 				choice = installments(price);
 				summary(price, choice, name);
 				break;
 			case 3:
-				//printf("Digite o seu CPF:\n");
-				//scanf("%d", cpf);
+				printf("Digite o seu CPF:\n");
+				scanf("%d", cpf);
+				adress();
 				summary(price, 0, name);
 				pix();
 				break;
