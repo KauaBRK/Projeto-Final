@@ -15,7 +15,7 @@ int main(){
 	char name[8] = "Produto";
 	float price = 75.99;
 	
-		printf("Escolha o meio de pagamento:\n[1] - Cartão de débito\n[2] - Cartão de crédito\n[3] - PIX\n");
+		printf("Escolha o método de pagamento:\n[1] - Cartão de débito\n[2] - Cartão de crédito\n[3] - PIX\n");
 		scanf("%d", &op);
 		fflush(stdin);
 		
@@ -32,6 +32,7 @@ int main(){
 			case 3:
 				//printf("Digite o seu CPF:\n");
 				//scanf("%d", cpf);
+				summary(price, 0, name);
 				pix();
 				break;
 		}
