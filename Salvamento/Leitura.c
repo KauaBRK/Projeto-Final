@@ -1,15 +1,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(){
-	FILE * arquivo = fopen("Produtos.txt", "r");
-	char texto[500];
+void leitura(int choice){
+	char text[500];
 	
-	if(arquivo){
-		printf("\nArquivo lido");
-		while(!feof(arquivo)){
-			if(fgets(texto,500,arquivo))
-			printf("\n%s", texto);
+	FILE * file = fopen("Produtos.txt", "r");
+	if(file==NULL){
+			printf("Erro ao abrir o arquivo\nDica: crie um arquivo por meio do cadastro.");
+		}
+	if(file){
+		if(choice==1){//Lista de produtos
+			while(!feof(file)){
+			if(fgets(text,500,file))	
+				printf("%s", text);
+			}
 		}
 	}
+	fclose(file);
+}
+int main(){
+	int choice=1;
+	leitura(choice);
 }
