@@ -7,8 +7,7 @@ int main(){
     int codigo;
     char nomeProduto[MAX_NOME], opcao;
     
-    
-    
+
     while(opcao!='N' && opcao !='n'){
     		FILE * arquivo = fopen("Produtos.txt", "w");
     		fflush(stdin);
@@ -18,6 +17,7 @@ int main(){
 		printf("Agora digite o codigo do produto a ser cadastrado: ");
 		scanf("%d", &codigo);
 		fprintf(arquivo, "\n%d", codigo);
+		
 		fclose(arquivo);
 		
 		fflush(stdin);
