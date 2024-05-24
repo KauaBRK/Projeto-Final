@@ -14,10 +14,10 @@ int main(){
     		fflush(stdin);
 		printf("Digite o nome do produto a ser cadastrado: ");
 		scanf("%s", nomeProduto);
-		fprintf(arquivo, "%s\n",nomeProduto);
+		fprintf(arquivo, "\n%s",nomeProduto);
 		printf("Agora digite o codigo do produto a ser cadastrado: ");
 		scanf("%d", &codigo);
-		fprintf(arquivo, "%d\n", codigo);
+		fprintf(arquivo, "\n%d", codigo);
 		fclose(arquivo);
 		
 		fflush(stdin);
