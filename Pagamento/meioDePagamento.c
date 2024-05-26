@@ -34,7 +34,7 @@ int main(){
 				break;
 			case 3:
 				printf("Digite o seu CPF:\n");
-				scanf("%d", cpf);
+				scanf("%d", &cpf);
 				adress();
 				summary(price, 0, name);
 				pix();
