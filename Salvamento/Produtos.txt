@@ -1,8 +1,8 @@
 
-Produto: JILSON
-Preco: 21.00
-Codigo: 3213211
+Produto: JORGE
+Preco: 15.00
+Codigo: 321321
 
 Produto: JILSON
-Preco: 23.00
+Preco: 21.00
 Codigo: 321321
