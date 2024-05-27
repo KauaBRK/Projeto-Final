@@ -3,16 +3,18 @@
 #include<string.h>
 #include<math.h>
 #include<locale.h>
+#include<ctype.h>
 
 #include"dadosDoCartao.c"
 #include"parcelas.c"
 #include"resumo.c"
 #include"qrCode.c"
 #include"endereço.c"
+#include"cpf.c"
 
-int main(){
+int payment(){
 	setlocale(LC_ALL, "");
-	int op, cpf, choice;
+	int op, choice;
 	char name[8] = "Produto";
 	float price = 75.99;
 	
@@ -33,11 +35,14 @@ int main(){
 				summary(price, choice, name);
 				break;
 			case 3:
-				printf("Digite o seu CPF:\n");
-				scanf("%d", &cpf);
+				cpf();
 				adress();
 				summary(price, 0, name);
-				pix();
+				pix();	
 				break;
 		}
+}
+
+int main(){
+	payment();
 }

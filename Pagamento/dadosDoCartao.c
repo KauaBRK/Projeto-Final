@@ -1,6 +1,7 @@
 void cardData(){
 	int crdNum, crdMM, crdYY, cvc;
 	char crdOwner[50];
+		system("cls");
 		printf("Número do cartão:\n");
 		scanf(" %d", &crdNum);
 		printf("Titular do cartão:\n");

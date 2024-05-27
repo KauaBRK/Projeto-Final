@@ -11,6 +11,7 @@ typedef struct{
 Adress shipment;
 
 void adress(){
+	system("cls");
 	printf("Endereço:\n");
 	scanf(" %s", &shipment.street);
 	fflush(stdin);
