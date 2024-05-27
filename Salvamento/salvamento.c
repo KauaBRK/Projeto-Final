@@ -7,6 +7,7 @@
 #include "flush.c"
 
 #define MAX_CHAR 80
+
 typedef struct{
 	int code;
 	float price;
@@ -21,7 +22,7 @@ typedef struct{
 int salvamento(int option){
 	int choice;
 	
-	if(option==2){
+	if(option==1){
 		Funcionarios funcionarios[1];
 		while(choice!=2){
 	    		FILE * file = fopen("Funcionarios.txt", "a+");
@@ -50,7 +51,7 @@ int salvamento(int option){
 	    printf("Obrigado por usar a plataforma de cadastro de funcionarios:)\n\n");
 	    system("pause");
 	}
-	if(option==1){
+	if(option==2){
 		Produtos produtos[1];
     		while(choice!=2){
 	    		FILE * file = fopen("Produtos.txt", "a+");
