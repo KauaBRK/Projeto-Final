@@ -36,10 +36,10 @@ int salvamento(int option){
 			printf("Digite o nome do Funcionario a ser cadastrado: ");
 			scanf("%s", funcionarios[0].employeeName);
 			strupr(funcionarios[0].employeeName);
-			fprintf(file,"\nFuncionario: %s\n", funcionarios[0].employeeName);
+			fprintf(file,"\nFuncionario: \n%s\n", funcionarios[0].employeeName);
 			printf("Digite o codigo do funcionario a ser cadastrado: ");
 			scanf("%d", &funcionarios[0].code);
-			fprintf(file, "Codigo: %d\n", funcionarios[0].code);
+			fprintf(file, "Codigo: \n%d\n", funcionarios[0].code);
 			flush_in();
 			fclose(file);
 			
@@ -65,10 +65,10 @@ int salvamento(int option){
 			printf("Digite o nome do produto a ser cadastrado: ");
 			scanf("%s", produtos[0].productName);
 			strupr(produtos[0].productName);
-			fprintf(file, "\nProduto: %s\n",produtos[0].productName);
+			fprintf(file, "\nProduto: \n%s\n",produtos[0].productName);
 			printf("Digite o preco do produto: R$");
 			scanf("%f", &produtos[0].price);
-			fprintf(file, "Preco: %.2f\n", produtos[0].price);
+			fprintf(file, "Preco: \n%.2f\n", produtos[0].price);
 			flush_in();
 			printf("Digite o codigo do produto a ser cadastrado: ");
 			scanf("%d", &produtos[0].code);
@@ -86,6 +86,6 @@ int salvamento(int option){
     }
 }
 int main(){
-	int option=2;
+	int option=1;
 	salvamento(option);
 }
