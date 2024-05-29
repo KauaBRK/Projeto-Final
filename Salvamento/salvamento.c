@@ -19,8 +19,8 @@ typedef struct{
 }Funcionarios;
 
 int salvamento(int option){
-	int choice, i=0;
-	char text[30][30], text2[20];
+	int choice, i=0, codeAux;
+	char text[30][30], text2[20], text3[20];
 	bool canCopy=false;
 	
 	
@@ -42,28 +42,28 @@ int salvamento(int option){
 			scanf("%s", funcionarios[0].employeeName);
 			strupr(funcionarios[0].employeeName);
 			printf("Digite o codigo do funcionario a ser cadastrado: ");
+			scanf("%d", &funcionarios[0].code);
+			sprintf(text2,"%d",funcionarios[0].code);
 			
-			
-			
-			/*while(canCopy==false){
-			
-				scanf("%d", &funcionarios[0].code);
-				sprintf(text2,"%d",funcionarios[0].code);
+			while(!feof(file)){
+					if(fgets(text[i],30,file)){
+					}
+					i++;
+			}
+			//strcpy(text3, text[2]);
+			do{
 				
-				while(!feof(file)){
-					if(fgets(text[i],30,file)){						
-						
-						if(text[i]!=funcionarios[0].code){
-							continue;
-						}		
-						else{
-							printf("Codigo do funcionario já foi cadastrado, use outro");
-						}
-						i++;
-					}						
+				for(int a=0;a<i;a++){
+					//if(strcmp(text3,text2)==0 || codeAux==funcionarios[0].code){
+					if(strcmp(text[2],text2)==0 || codeAux==funcionarios[0].code){
+						printf("Codigo do funcionario jÃ¡ foi cadastrado, use outro.\n");
+					}
 				}
-			flush();
-			}*/
+				flush();
+			
+			}while(canCopy==false);
+			
+			codeAux=funcionarios[0].code;
 			fprintf(file,"\nFuncionario: \n%s\n", funcionarios[0].employeeName);
 			fprintf(file, "Codigo: \n%d\n", funcionarios[0].code);
 			flush();
