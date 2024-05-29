@@ -1,8 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#include<ctype.h>
-#include <conio.h>
+#include<stdbool.h>
 
 #include "flush.c"
 
@@ -20,12 +19,18 @@ typedef struct{
 }Funcionarios;
 
 int salvamento(int option){
-	int choice;
+	int choice, i=0;
+	char text[30][30], text2[20];
+	bool canCopy=false;
+	
 	
 	if(option==1){
 		Funcionarios funcionarios[1];
 		while(choice!=2){
 	    		FILE * file = fopen("Funcionarios.txt", "a+");
+	    		
+	    	
+	    		
 	    		if(file==NULL){
 				printf("Erro ao abrir o arquivo\nCriando um arquivo novo :)");
 				FILE * file = fopen("Funcionarios.txt", "w");
@@ -36,13 +41,33 @@ int salvamento(int option){
 			printf("Digite o nome do Funcionario a ser cadastrado: ");
 			scanf("%s", funcionarios[0].employeeName);
 			strupr(funcionarios[0].employeeName);
-			fprintf(file,"\nFuncionario: \n%s\n", funcionarios[0].employeeName);
 			printf("Digite o codigo do funcionario a ser cadastrado: ");
-			scanf("%d", &funcionarios[0].code);
-			fprintf(file, "Codigo: \n%d\n", funcionarios[0].code);
-			flush_in();
-			fclose(file);
 			
+			
+			
+			/*while(canCopy==false){
+			
+				scanf("%d", &funcionarios[0].code);
+				sprintf(text2,"%d",funcionarios[0].code);
+				
+				while(!feof(file)){
+					if(fgets(text[i],30,file)){						
+						
+						if(text[i]!=funcionarios[0].code){
+							continue;
+						}		
+						else{
+							printf("Codigo do funcionario já foi cadastrado, use outro");
+						}
+						i++;
+					}						
+				}
+			flush();
+			}*/
+			fprintf(file,"\nFuncionario: \n%s\n", funcionarios[0].employeeName);
+			fprintf(file, "Codigo: \n%d\n", funcionarios[0].code);
+			flush();
+			fclose(file);
 			printf("\nFuncionario: %s\nCodigo: %d\n", funcionarios[0].employeeName, funcionarios[0].code);
 			printf("\nDeseja cadastrar mais algum funcionario?\n[1]Sim\n[2]Nao\n");
 			scanf("%d", &choice);
@@ -69,11 +94,11 @@ int salvamento(int option){
 			printf("Digite o preco do produto: R$");
 			scanf("%f", &produtos[0].price);
 			fprintf(file, "Preco: \n%.2f\n", produtos[0].price);
-			flush_in();
+			flush();
 			printf("Digite o codigo do produto a ser cadastrado: ");
 			scanf("%d", &produtos[0].code);
 			fprintf(file, "Codigo: %d\n", produtos[0].code);
-			flush_in();
+			flush();
 			fclose(file);
 			
 			printf("\nProduto: %s\nCodigo: %d\nPreco: %.2f\n", produtos[0].productName, produtos[0].code, produtos[0].price);

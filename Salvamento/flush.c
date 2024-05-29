@@ -1,4 +1,4 @@
-void flush_in() {
+void flush() {
     int ch;
     do {
         ch = fgetc(stdin);
