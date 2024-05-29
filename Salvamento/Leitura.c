@@ -40,14 +40,15 @@ void leitura(int choice){
 				printf("%s",text[2]);
 				printf("Digite seu nome: ");
 				scanf("%s", text2);
-					if(strcmp(text3,text2)==0 && twoAFactor==0){
+					//if(strcmp(text3,text2)==0 && twoAFactor==0){
+					if(strcmp(text[2],text2)==0 && twoAFactor==0){
 						twoAFactor=1;
-					/*if(twoAFactor==1){
+					if(twoAFactor==1){
 						printf("Agora digite o codigo: ");
 						if(strcmp(text[4],text2)==0 && twoAFactor==1){
 						canCopy=1;
 						}
-					}*/
+					}
 				}
 			}
 				
