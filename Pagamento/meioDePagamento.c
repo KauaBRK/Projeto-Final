@@ -15,8 +15,6 @@
 int payment(){
 	setlocale(LC_ALL, "");
 	int op, choice;
-	char name[8] = "Produto";
-	float price = 75.99;
 	
 		printf("Escolha o método de pagamento:\n[1] - Cartão de débito\n[2] - Cartão de crédito\n[3] - PIX\n");
 		scanf("%d", &op);
