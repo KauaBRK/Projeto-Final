@@ -39,19 +39,29 @@ int salvamento(int option){
 			}
 	    		fflush(stdin);
 			printf("Digite o nome do Funcionario a ser cadastrado: ");
-			scanf("%s", funcionarios[0].employeeName);
+			gets(funcionarios[0].employeeName);
 			strupr(funcionarios[0].employeeName);
 			printf("Digite o codigo do funcionario a ser cadastrado: ");
 			scanf("%d", &funcionarios[0].code);
 			sprintf(text2,"%d",funcionarios[0].code);
+			
 			
 			while(!feof(file)){
 					if(fgets(text[i],30,file)){
 					}
 					i++;
 			}
+			i=0;
+			/*while(funcionarios[0].employeeName[i]!='\n'){
+				
+				if(funcionarios[0].employeeName[i]=='\n'){
+					funcionarios[0].employeeName[i]='\0';
+					break;
+				}
+				i++;
+			}*/
 			//strcpy(text3, text[2]);
-			do{
+			/*do{
 				
 				for(int a=0;a<i;a++){
 					//if(strcmp(text3,text2)==0 || codeAux==funcionarios[0].code){
@@ -62,10 +72,10 @@ int salvamento(int option){
 				flush();
 			
 			}while(canCopy==false);
-			
+			*/
 			codeAux=funcionarios[0].code;
-			fprintf(file,"\nFuncionario: \n%s\n", funcionarios[0].employeeName);
-			fprintf(file, "Codigo: \n%d\n", funcionarios[0].code);
+			fprintf(file,"\nFuncionario: \n%s#\n", funcionarios[0].employeeName);
+			fprintf(file, "Codigo: \n%d#\n", funcionarios[0].code);
 			flush();
 			fclose(file);
 			printf("\nFuncionario: %s\nCodigo: %d\n", funcionarios[0].employeeName, funcionarios[0].code);

@@ -31,22 +31,41 @@ void leitura(int choice){
 			
 			while(!feof(file)){
 				if(fgets(text[i],500,file)){	 					
+					int b=0;
+					//printf("\ni: %d\n", i);
+					do{
+						if(text[i][b]=='#'){
+							//printf("teste %d\n", i);
+							//printf("##%c##", text[i][b]);
+							text[i][b]='\0';
+							break;
+							
+						}
+						
+						//printf(" %d ", b);
+						b++;
+					}while(text[i][b]!='\n');
 					i++;
-				}	
+				}
 			}
 			//strcpy(text3, text[2]);
 			while(canCopy==0){
 				//printf("%s",text3);
-				printf("%s",text[2]);
+				printf("#TEST#%s#TEST#", text[2]);
 				printf("Digite seu nome: ");
-				scanf("%s", text2);
+				gets(text2);
+				fflush(stdin);
+				strupr(text2);
+				printf("%d\n", strcmp(text[2],text2));
 					//if(strcmp(text3,text2)==0 && twoAFactor==0){
-					if(strcmp(text[2],text2)==0 && twoAFactor==0){
-						twoAFactor=1;
+				if(strcmp(text[2],text2)==0 && twoAFactor==0){
+					twoAFactor=1;
 					if(twoAFactor==1){
+						fflush(stdin);
 						printf("Agora digite o codigo: ");
+						gets(text2);
 						if(strcmp(text[4],text2)==0 && twoAFactor==1){
-						canCopy=1;
+							canCopy=1;
 						}
 					}
 				}
