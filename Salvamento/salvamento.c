@@ -21,16 +21,13 @@ typedef struct{
 int salvamento(int option){
 	int choice, i=0, codeAux;
 	char text[30][30], text2[20], text3[20];
-	bool canCopy=false;
 	
 	
 	if(option==1){
 		Funcionarios funcionarios[1];
 		while(choice!=2){
+			
 	    		FILE * file = fopen("Funcionarios.txt", "a+");
-	    		
-	    	
-	    		
 	    		if(file==NULL){
 				printf("Erro ao abrir o arquivo\nCriando um arquivo novo :)");
 				FILE * file = fopen("Funcionarios.txt", "w");
@@ -45,34 +42,54 @@ int salvamento(int option){
 			scanf("%d", &funcionarios[0].code);
 			sprintf(text2,"%d",funcionarios[0].code);
 			
-			
-			while(!feof(file)){
-					if(fgets(text[i],30,file)){
-					}
-					i++;
-			}
 			i=0;
-			/*while(funcionarios[0].employeeName[i]!='\n'){
-				
-				if(funcionarios[0].employeeName[i]=='\n'){
-					funcionarios[0].employeeName[i]='\0';
-					break;
+			while(!feof(file)){
+				if(fgets(text[i],500,file)){	 					
+					int b=0;
+					do{
+						if(text[i][b]=='#'){
+							text[i][b]='\0';
+							break;
+							
+						}
+						b++;
+					}while(text[i][b]!='\n');
+					i++;
 				}
-				i++;
-			}*/
-			//strcpy(text3, text[2]);
-			/*do{
+			}
+			
+			strcpy(text3, text[4]);
+			printf("##1 %s ##", text3);
+			printf("\n##3 %d ##", strcmp(text[4],text2));
+			int canCopy=0;
+			
+			while(canCopy==0){
+			
+				if(strcmp(text[4], text2)==0){
+					printf("Codigo de funcionario já existe.");
+					printf("\nDigite o codigo do funcionario a ser cadastrado: ");
+					scanf("%d", &funcionarios[0].code);
+					sprintf(text2,"%d",funcionarios[0].code);
+				}
+				else{
+					canCopy=1;
+				}
+				
+				
+			}
+			
+			/*while(canCopy==0){
 				
 				for(int a=0;a<i;a++){
-					//if(strcmp(text3,text2)==0 || codeAux==funcionarios[0].code){
-					if(strcmp(text[2],text2)==0 || codeAux==funcionarios[0].code){
+					if(strcmp(text3,text2)==0 || codeAux==funcionarios[0].code){
+					
 						printf("Codigo do funcionario já foi cadastrado, use outro.\n");
 					}
 				}
 				flush();
 			
-			}while(canCopy==false);
-			*/
+			}*/
+			
 			codeAux=funcionarios[0].code;
 			fprintf(file,"\nFuncionario: \n%s#\n", funcionarios[0].employeeName);
 			fprintf(file, "Codigo: \n%d#\n", funcionarios[0].code);
