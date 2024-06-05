@@ -42,7 +42,7 @@ int salvamento(int option){
 			scanf("%d", &funcionarios[0].code);
 			sprintf(text2,"%d",funcionarios[0].code);
 			
-			i=0;
+			
 			while(!feof(file)){
 				if(fgets(text[i],500,file)){	 					
 					int b=0;
@@ -50,22 +50,17 @@ int salvamento(int option){
 						if(text[i][b]=='#'){
 							text[i][b]='\0';
 							break;
-							
 						}
 						b++;
 					}while(text[i][b]!='\n');
 					i++;
 				}
 			}
-			
 			strcpy(text3, text[4]);
-			printf("##1 %s ##", text3);
-			printf("\n##3 %d ##", strcmp(text[4],text2));
 			int canCopy=0;
-			
 			while(canCopy==0){
 			
-				if(strcmp(text[4], text2)==0){
+				if(strcmp(text[4], text2)==0 || funcionarios[0].code==codeAux){
 					printf("Codigo de funcionario já existe.");
 					printf("\nDigite o codigo do funcionario a ser cadastrado: ");
 					scanf("%d", &funcionarios[0].code);
@@ -74,22 +69,8 @@ int salvamento(int option){
 				else{
 					canCopy=1;
 				}
-				
-				
+	
 			}
-			
-			/*while(canCopy==0){
-				
-				for(int a=0;a<i;a++){
-					if(strcmp(text3,text2)==0 || codeAux==funcionarios[0].code){
-					
-						printf("Codigo do funcionario já foi cadastrado, use outro.\n");
-					}
-				}
-				flush();
-			
-			}*/
-			
 			codeAux=funcionarios[0].code;
 			fprintf(file,"\nFuncionario: \n%s#\n", funcionarios[0].employeeName);
 			fprintf(file, "Codigo: \n%d#\n", funcionarios[0].code);
@@ -117,14 +98,55 @@ int salvamento(int option){
 			printf("Digite o nome do produto a ser cadastrado: ");
 			scanf("%s", produtos[0].productName);
 			strupr(produtos[0].productName);
-			fprintf(file, "\nProduto: \n%s\n",produtos[0].productName);
+			fprintf(file, "\nProduto: \n%s#\n",produtos[0].productName);
 			printf("Digite o preco do produto: R$");
 			scanf("%f", &produtos[0].price);
-			fprintf(file, "Preco: \n%.2f\n", produtos[0].price);
+			fprintf(file, "Preco: \n%.2f#\n", produtos[0].price);
 			flush();
 			printf("Digite o codigo do produto a ser cadastrado: ");
 			scanf("%d", &produtos[0].code);
-			fprintf(file, "Codigo: %d\n", produtos[0].code);
+			sprintf(text2,"%d",produtos[0].code);
+			
+			i=0;
+			while(!feof(file)){
+				if(fgets(text[i],500,file)){
+					i++;
+				}	
+			}
+			printf("%s", text3);
+			/*while(!feof(file)){
+				if(fgets(text[i],500,file)){	 					
+					int b=0;
+					do{
+						if(text[i][b]=='#'){
+							text[i][b]='\0';
+							break;
+							
+						}
+						b++;
+					}while(text[i][b]!='\n');
+					i++;
+				}
+			}
+			*/
+			strcpy(text3, text[4]);
+			
+			
+			int canCopy=0;
+			while(canCopy==0){
+			
+				if(strcmp(text3, text2)==0 || produtos[0].code==codeAux){
+					printf("Codigo de produto já existe.");
+					printf("\nDigite o codigo do produto a ser cadastrado: ");
+					scanf("%d", &produtos[0].code);
+					sprintf(text2,"%d",produtos[0].code);
+				}
+				else{
+					canCopy=1;
+				}
+			}
+			
+			fprintf(file, "Codigo: \n%d#\n", produtos[0].code);
 			flush();
 			fclose(file);
 			
@@ -138,6 +160,6 @@ int salvamento(int option){
     }
 }
 int main(){
-	int option=1;
+	int option=2;
 	salvamento(option);
 }
