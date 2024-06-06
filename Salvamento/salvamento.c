@@ -20,8 +20,7 @@ typedef struct{
 
 int salvamento(int option){
 	int choice, i=0, codeAux;
-	char text[30][30], text2[20], text3[20];
-	
+	char text[30][30], text2[50], text3[50], funcionario[30][50], codigo[30][50];
 	
 	if(option==1){
 		Funcionarios funcionarios[1];
@@ -42,20 +41,42 @@ int salvamento(int option){
 			scanf("%d", &funcionarios[0].code);
 			sprintf(text2,"%d",funcionarios[0].code);
 			
+			/*int codigos=0, funcionarios=2, b=0, c=0;
 			
 			while(!feof(file)){
-				if(fgets(text[i],500,file)){	 					
-					int b=0;
+				if(fgets(text[i],500,file)){
+				int d=0;
 					do{
-						if(text[i][b]=='#'){
-							text[i][b]='\0';
+						if(text[i][d]=='#'){
+							text[i][d]='\0';
 							break;
 						}
+						d++;
+					}while(text[i][d]!='\n');
+				
+				
+					if(codigos!=0 || funcionarios!=-0){
+						codigos++;
+						funcionarios++;
+					}
+					if(codigos%5==0){
+						strcpy(codigo[b], text[i]);
+						
 						b++;
-					}while(text[i][b]!='\n');
+						
+					}
+					if(funcionarios%5==0){
+						strcpy(funcionario[c], text[i]);
+						
+						c++;
+						
+					}
+						
+					
 					i++;
 				}
 			}
+			*/
 			strcpy(text3, text[4]);
 			int canCopy=0;
 			while(canCopy==0){
@@ -127,8 +148,8 @@ int salvamento(int option){
 					}while(text[i][b]!='\n');
 					i++;
 				}
-			}
-			*/
+			}*/
+			
 			strcpy(text3, text[4]);
 			
 			
