@@ -6,29 +6,29 @@
 #include<ctype.h>
 
 #include"saida.c"
+#include"cadastroCliente.c"
 
 void menu(){
-	int op;
-	char op2;
+	char op, op2;
+	int exit;
 	setlocale(LC_ALL, "");
 		
-		while(getOut != 1){
+		while(exit != 1){
 			printf("\t\t##################\n\t\t#\t\t #\n\t\t#      MENU      #\n\t\t#\t\t #\n\t\t##################\n\nBem vindo(a) à loja [PLACEHOLDER]!!");
-			printf("\n\n[1] - Login / Cadastro\n[2] - Visualizar catálogo\n[3] - Carrinho\n[4] - Área restrita\n[5] - Fechar aplicação\nPor favor, escolha uma opção: ");
-			scanf("%d", &op);
+			printf("\n\n[1] - Login / Cadastro\n[2] - Visualizar catálogo\n[3] - Carrinho\n[4] - Área restrita\n[5] - Fechar aplicação\n\nPor favor, escolha uma opção: ");
+			scanf("%c", &op);
 			fflush(stdin);
 			
 			switch(op){
-				case 1:
+				case '1'://login/cadastro de cliente
+					clientList();
 					break;
-				case 2:
+				case '3'://carrinho
 					break;
-				case 3:
+				case '4'://área dos funcionários
 					break;
-				case 4:
-					break;
-				case 5:
-					getOut();
+				case '5'://sair da aplicação
+					exit = getOut();
                 	break;
 				default:
 					break;
